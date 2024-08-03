@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let empdet={
+            namelst:["aaa","bbb","ccc","ddd"],
+            respblty:["developing","testing","reviewing","finalizing"],
+            status:["inprogress","completed","started","waiting"]
+        }
+
+        let workststus=true;
+
+        let fetchData=()=>{
+            return new Promise((resolve,reject)=>{
+                if(workststus){
+                    resolve("the emp are reached the office..");
+                }
+                else{
+                    reject("today is working");
+                }
+            })
+        }
+        
+        fetchData().then(()=>{
+            setTimeout(()=>{
+                document.writeln("<h1>they are ready for work</h1> ")
+            },2000)
+           // console.log("they are ready for work")
+        }).then(()=>{
+
+            setTimeout(()=>{
+                document.writeln("<h1>the work is assigned for emp</h1> ")
+            },4000)
+            //console.log("the work is assigned for emp")
+        }).then(()=>{
+            setTimeout(()=>{
+                document.writeln("<h1>emp started to work</h1> ")
+            },6000)
+        }).then(()=>{
+                setTimeout(()=>{
+                    document.writeln(`<h1> ${empdet.namelst[0]} is doing ${empdet.respblty[0]} the work status is  ${empdet.status[0]}</h1>`)
+                },6000)
+             }).then(()=>{
+                setTimeout(()=>{
+                    document.writeln(`<h1> ${empdet.namelst[1]} is doing ${empdet.respblty[1]} the work status is  ${empdet.status[1]}</h1>`)
+                },6000)
+             }).then(()=>{
+                setTimeout(()=>{
+                    document.writeln(`<h1> ${empdet.namelst[2]} is doing ${empdet.respblty[2]} the work status is  ${empdet.status[2]}</h1>`)
+                },6000)
+             })
+            //console.log("emp started to work")
+        .then(()=>{
+            setTimeout(()=>{
+                document.writeln("<h1>the work is finished</h1> ")
+            },8000)
+        }).catch(()=>{
+            setTimeout(()=>{
+                document.writeln("<h1>today is sunday</h1> ")
+            },2000)
+        }).finally(()=>{
+            setTimeout(()=>{
+                document.writeln("<h1>the office is closed</h1> ")
+            },10000)
+        })
+    </script>
+</body>
+</html>

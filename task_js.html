@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    // Create form elements
+    const formContainer = document.createElement('div');
+    formContainer.className = 'form-container';
+
+    const heading = document.createElement('h2');
+    heading.innerText = 'Register';
+    formContainer.appendChild(heading);
+
+    const form = document.createElement('form');
+    form.id = 'registerForm';
+    form.onsubmit = function() { return validateForm(); };
+    formContainer.appendChild(form);
+
+    const fields = [
+        { label: 'Username', type: 'text', id: 'username' },
+        { label: 'Email', type: 'email', id: 'email' },
+        { label: 'Password', type: 'password', id: 'password' }
+    ];
+
+    fields.forEach(field => {
+        const formGroup = document.createElement('div');
+        formGroup.className = 'form-group';
+
+        const label = document.createElement('label');
+        label.setAttribute('for', field.id);
+        label.innerText = field.label;
+        formGroup.appendChild(label);
+
+        const input = document.createElement('input');
+        input.type = field.type;
+        input.id = field.id;
+        input.name = field.id;
+        input.required = true;
+        formGroup.appendChild(input);
+
+        form.appendChild(formGroup);
+    });
+
+    const submitButton = document.createElement('button');
+    submitButton.type = 'submit';
+    submitButton.innerText = 'Register';
+    form.appendChild(submitButton);
+
+    document.body.appendChild(formContainer);
+
+    // Add CSS styles
+    const styles = `
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            max-width: 100%;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        input {
+            width: calc(100% - 16px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: #5cb85c;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+    `;
+
+    const styleSheet = document.createElement("style");
+    styleSheet.type = "text/css";
+    styleSheet.innerText = styles;
+    document.head.appendChild(styleSheet);
+});
+
+function validateForm() {
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    if (!username || !email || !password) {
+        alert('Please fill out all fields');
+        return false;
+    }
+
+    alert('Registration successful!');
+    return true;
+}
+
+    </script>
+</body>
+</html>

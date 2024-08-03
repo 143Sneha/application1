@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let studentData={
+            name : "apj",
+            address:"chennai",
+            courses:{
+            course1:"python",
+            course2:"java",
+            course3 :"c",
+        },
+            fee:2000,
+            feestatus:"paid"
+        }
+        document.writeln(studentData.courses.course1)
+        for(let k in studentData){
+           // console.log(k;)
+           // document.writeln("</h1>"+k+":"+studentData[k]+"'</h1");
+            if(typeof(studentData[k])=="object"){
+              for( let k1 in studentData.courses){
+                document.writeln("<h1>"+k1+":"+studentData.courses[key]+"</h1>")
+              }
+            }
+            document.writeln("</h1>"+k+":"+studentData[k]+"'</h1");
+        }
+
+        document.writeln(studentData.name)
+        document.writeln(studentData.address)
+        document.writeln(studentData.courses)
+        document.writeln(studentData.fee)
+        document.writeln(studentData.feestatus)
+
+
+    </script>
+</body>
+</html>

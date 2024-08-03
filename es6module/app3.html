@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let itemdet={
+            ctype:["icecake","freshcream","chocolate","strawberry"],
+            ing:["baking","iceing","heating","glazing"],
+            desg:["square","circle","rectangle","pyramid"],
+            status:["inprogress","completed","started","not started"]
+        }
+
+        let workststus=true;
+
+        let fetchData=()=>{
+            return new Promise((resolve,reject)=>{
+                if(workststus){
+                    resolve("the cake shop is opened..");
+                }
+                else{
+                    reject("today is sunday");
+                }
+            })
+        }
+        
+        fetchData().then(()=>{
+            setTimeout(()=>{
+                document.writeln("<h1>the order is taken</h1> ")
+            },2000)
+           // console.log("they are ready for work")
+        }).then(()=>{
+
+            setTimeout(()=>{
+                document.writeln("<h1>the ingeridents are noted </h1> ")
+            },4000)
+            //console.log("the work is assigned for emp")
+        }).then(()=>{
+            setTimeout(()=>{
+                document.writeln("<h1>the cake is being prepared</h1> ")
+            },6000)
+        }).then(()=>{
+                setTimeout(()=>{
+                    document.writeln(`<h1> the ${itemdet.ctype[0]} is ready for ${itemdet.ing[0]} in ${itemdet.desg[0]} shape and it is ${itemdet.status[0]}</h1>`)
+                },6000)
+             }).then(()=>{
+                setTimeout(()=>{
+                    document.writeln(`<h1> the ${itemdet.ctype[1]} is ready for ${itemdet.ing[1]} in ${itemdet.desg[1]} shape and it is ${itemdet.status[1]}</h1>`)
+                },6000)
+             }).then(()=>{
+                setTimeout(()=>{
+                    document.writeln(`<h1> the ${itemdet.ctype[2]} is ready for ${itemdet.ing[2]} in ${itemdet.desg[2]} shape and it is ${itemdet.status[2]}</h1>`)
+                },6000)
+             }).then(()=>{
+                setTimeout(()=>{
+                    document.writeln(`<h1> the ${itemdet.ctype[3]} is ready for ${itemdet.ing[3]} in ${itemdet.desg[3]} shape and it is ${itemdet.status[3]}</h1>`)
+                },6000)
+             })
+            //console.log("emp started to work")
+        .then(()=>{
+            setTimeout(()=>{
+                document.writeln("<h1>the order is delivered</h1> ")
+            },8000)
+        }).catch(()=>{
+            setTimeout(()=>{
+                document.writeln("<h1>its holiday</h1> ")
+            },2000)
+        }).finally(()=>{
+            setTimeout(()=>{
+                document.writeln("<h1>the shop is closed</h1> ")
+            },10000)
+        })
+        </script>
+</body>
+</html>
